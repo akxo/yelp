@@ -8,27 +8,26 @@
 
 import Foundation
 
-struct Business: Decodable {
+class Business: Decodable {
     let id: String
-    let alias: String
     let name: String
-    let image_url: String
-    let is_closed: Bool
+    let alias: String
+    let imageUrl: String
+    let isClosed: Bool
     let url: String
     let review_count: Int
     let categories: [Category]
     let rating: Double
-//    let coordinates: Coordinates
-//    let transactions: [Transaction]
+    let coordinates: Coordinates
+    let transactions: [String]
     let price: String
     let location: Location
     let phone: String
-    let display_phone: String
+    let displayPhone: String
     let distance: Double
-    
-    let is_claimed: Bool
+    let isClaimed: Bool
     let photos: [String]
-//    let hours: Hours
-//    let messaging: Messaging
-    
+    let hours: [Hours]
+    let specialHours: [SpecialHour]
+    let messaging: Messaging
 }

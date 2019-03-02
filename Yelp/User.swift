@@ -10,7 +10,7 @@ import Foundation
 
 struct User: Decodable {
     let id: String
-    let profile_url: String
-    let image_url: String
     let name: String
+    let profileUrl: String
+    let imageUrl: String
 }

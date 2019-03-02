@@ -11,4 +11,7 @@ import Foundation
 struct Category: Decodable {
     let alias: String
     let title: String
+    let parentAliases: [String]
+    let countryWhitelist: [String]
+    let countryBlacklist: [String]
 }

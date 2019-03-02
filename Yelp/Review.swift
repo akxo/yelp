@@ -13,6 +13,6 @@ struct Review: Decodable {
     let rating: Int
     let user: User
     let text: String
-    let time_created: String
+    let timeCreated: String
     let url: String
 }

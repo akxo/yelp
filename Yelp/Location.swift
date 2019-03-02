@@ -13,9 +13,9 @@ struct Location: Decodable {
     let address2: String
     let address3: String
     let city: String
-    let zip_code: String
+    let zipCode: String
     let country: String
     let state: String
-    let display_address: [String]
-    let cross_streets: String
+    let displayAddress: [String]
+    let crossStreets: String
 }
