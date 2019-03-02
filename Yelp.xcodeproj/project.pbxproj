@@ -10,6 +10,9 @@
 		A644446F222A18B70066FA47 /* Yelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6444465222A18B70066FA47 /* Yelp.framework */; };
 		A6444474222A18B70066FA47 /* YelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444473222A18B70066FA47 /* YelpTests.swift */; };
 		A6444476222A18B70066FA47 /* Yelp.h in Headers */ = {isa = PBXBuildFile; fileRef = A6444468222A18B70066FA47 /* Yelp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6444480222A28EC0066FA47 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644447F222A28EC0066FA47 /* Business.swift */; };
+		A6444482222A2D470066FA47 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444481222A2D470066FA47 /* Category.swift */; };
+		A6444484222A2E910066FA47 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444483222A2E910066FA47 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		A644446E222A18B70066FA47 /* YelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6444473222A18B70066FA47 /* YelpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpTests.swift; sourceTree = "<group>"; };
 		A6444475222A18B70066FA47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A644447F222A28EC0066FA47 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		A6444481222A2D470066FA47 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A6444483222A2E910066FA47 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +77,10 @@
 		A6444467222A18B70066FA47 /* Yelp */ = {
 			isa = PBXGroup;
 			children = (
-				A6444468222A18B70066FA47 /* Yelp.h */,
-				A6444469222A18B70066FA47 /* Info.plist */,
+				A644447F222A28EC0066FA47 /* Business.swift */,
+				A6444481222A2D470066FA47 /* Category.swift */,
+				A6444483222A2E910066FA47 /* Location.swift */,
+				A6444485222A31030066FA47 /* Resources */,
 			);
 			path = Yelp;
 			sourceTree = "<group>";
@@ -84,6 +92,15 @@
 				A6444475222A18B70066FA47 /* Info.plist */,
 			);
 			path = YelpTests;
+			sourceTree = "<group>";
+		};
+		A6444485222A31030066FA47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6444468222A18B70066FA47 /* Yelp.h */,
+				A6444469222A18B70066FA47 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +165,7 @@
 				TargetAttributes = {
 					A6444464222A18B70066FA47 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					A644446D222A18B70066FA47 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6444480222A28EC0066FA47 /* Business.swift in Sources */,
+				A6444484222A2E910066FA47 /* Location.swift in Sources */,
+				A6444482222A2D470066FA47 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +362,7 @@
 		A644447A222A18B70066FA47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alexander-kerendian.Yelp";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +389,7 @@
 		A644447B222A18B70066FA47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +415,7 @@
 		A644447D222A18B70066FA47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PQJ4KYE37;
 				INFOPLIST_FILE = YelpTests/Info.plist;
@@ -409,6 +434,7 @@
 		A644447E222A18B70066FA47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6PQJ4KYE37;
 				INFOPLIST_FILE = YelpTests/Info.plist;
