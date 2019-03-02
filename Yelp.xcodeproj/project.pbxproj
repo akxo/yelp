@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		A644446F222A18B70066FA47 /* Yelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6444465222A18B70066FA47 /* Yelp.framework */; };
 		A6444474222A18B70066FA47 /* YelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444473222A18B70066FA47 /* YelpTests.swift */; };
-		A6444476222A18B70066FA47 /* Yelp.h in Headers */ = {isa = PBXBuildFile; fileRef = A6444468222A18B70066FA47 /* Yelp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6444480222A28EC0066FA47 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644447F222A28EC0066FA47 /* Business.swift */; };
 		A6444482222A2D470066FA47 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444481222A2D470066FA47 /* Category.swift */; };
 		A6444484222A2E910066FA47 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444483222A2E910066FA47 /* Location.swift */; };
 		A6444487222A376E0066FA47 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444486222A376E0066FA47 /* Review.swift */; };
+		A6444489222A385A0066FA47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444488222A385A0066FA47 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +28,6 @@
 
 /* Begin PBXFileReference section */
 		A6444465222A18B70066FA47 /* Yelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6444468222A18B70066FA47 /* Yelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Yelp.h; sourceTree = "<group>"; };
 		A6444469222A18B70066FA47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A644446E222A18B70066FA47 /* YelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6444473222A18B70066FA47 /* YelpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpTests.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		A6444481222A2D470066FA47 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A6444483222A2E910066FA47 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A6444486222A376E0066FA47 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		A6444488222A385A0066FA47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +83,7 @@
 				A6444481222A2D470066FA47 /* Category.swift */,
 				A6444483222A2E910066FA47 /* Location.swift */,
 				A6444486222A376E0066FA47 /* Review.swift */,
+				A6444488222A385A0066FA47 /* User.swift */,
 				A6444485222A31030066FA47 /* Resources */,
 			);
 			path = Yelp;
@@ -100,7 +101,6 @@
 		A6444485222A31030066FA47 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A6444468222A18B70066FA47 /* Yelp.h */,
 				A6444469222A18B70066FA47 /* Info.plist */,
 			);
 			path = Resources;
@@ -113,7 +113,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6444476222A18B70066FA47 /* Yelp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +217,7 @@
 				A6444480222A28EC0066FA47 /* Business.swift in Sources */,
 				A6444487222A376E0066FA47 /* Review.swift in Sources */,
 				A6444484222A2E910066FA47 /* Location.swift in Sources */,
+				A6444489222A385A0066FA47 /* User.swift in Sources */,
 				A6444482222A2D470066FA47 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +374,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Yelp/Info.plist;
+				INFOPLIST_FILE = Yelp/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -401,7 +401,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Yelp/Info.plist;
+				INFOPLIST_FILE = Yelp/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
