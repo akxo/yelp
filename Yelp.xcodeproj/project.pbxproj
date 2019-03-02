@@ -13,6 +13,7 @@
 		A6444480222A28EC0066FA47 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644447F222A28EC0066FA47 /* Business.swift */; };
 		A6444482222A2D470066FA47 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444481222A2D470066FA47 /* Category.swift */; };
 		A6444484222A2E910066FA47 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444483222A2E910066FA47 /* Location.swift */; };
+		A6444487222A376E0066FA47 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444486222A376E0066FA47 /* Review.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		A644447F222A28EC0066FA47 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		A6444481222A2D470066FA47 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A6444483222A2E910066FA47 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		A6444486222A376E0066FA47 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				A644447F222A28EC0066FA47 /* Business.swift */,
 				A6444481222A2D470066FA47 /* Category.swift */,
 				A6444483222A2E910066FA47 /* Location.swift */,
+				A6444486222A376E0066FA47 /* Review.swift */,
 				A6444485222A31030066FA47 /* Resources */,
 			);
 			path = Yelp;
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6444480222A28EC0066FA47 /* Business.swift in Sources */,
+				A6444487222A376E0066FA47 /* Review.swift in Sources */,
 				A6444484222A2E910066FA47 /* Location.swift in Sources */,
 				A6444482222A2D470066FA47 /* Category.swift in Sources */,
 			);
