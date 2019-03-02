@@ -14,6 +14,12 @@
 		A6444484222A2E910066FA47 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444483222A2E910066FA47 /* Location.swift */; };
 		A6444487222A376E0066FA47 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444486222A376E0066FA47 /* Review.swift */; };
 		A6444489222A385A0066FA47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444488222A385A0066FA47 /* User.swift */; };
+		A644448B222AE8650066FA47 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644448A222AE8650066FA47 /* Event.swift */; };
+		A644448D222AE9FA0066FA47 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644448C222AE9FA0066FA47 /* Coordinates.swift */; };
+		A644448F222AEAB00066FA47 /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = A644448E222AEAB00066FA47 /* Hours.swift */; };
+		A6444491222AEB420066FA47 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444490222AEB420066FA47 /* Day.swift */; };
+		A6444493222AEC4B0066FA47 /* SpecialHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444492222AEC4B0066FA47 /* SpecialHour.swift */; };
+		A6444495222AECD60066FA47 /* Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444494222AECD60066FA47 /* Messaging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,12 @@
 		A6444483222A2E910066FA47 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A6444486222A376E0066FA47 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A6444488222A385A0066FA47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A644448A222AE8650066FA47 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A644448C222AE9FA0066FA47 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		A644448E222AEAB00066FA47 /* Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hours.swift; sourceTree = "<group>"; };
+		A6444490222AEB420066FA47 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		A6444492222AEC4B0066FA47 /* SpecialHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialHour.swift; sourceTree = "<group>"; };
+		A6444494222AECD60066FA47 /* Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messaging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +92,16 @@
 			isa = PBXGroup;
 			children = (
 				A644447F222A28EC0066FA47 /* Business.swift */,
+				A644448C222AE9FA0066FA47 /* Coordinates.swift */,
 				A6444481222A2D470066FA47 /* Category.swift */,
 				A6444483222A2E910066FA47 /* Location.swift */,
 				A6444486222A376E0066FA47 /* Review.swift */,
 				A6444488222A385A0066FA47 /* User.swift */,
+				A644448A222AE8650066FA47 /* Event.swift */,
+				A644448E222AEAB00066FA47 /* Hours.swift */,
+				A6444492222AEC4B0066FA47 /* SpecialHour.swift */,
+				A6444490222AEB420066FA47 /* Day.swift */,
+				A6444494222AECD60066FA47 /* Messaging.swift */,
 				A6444485222A31030066FA47 /* Resources */,
 			);
 			path = Yelp;
@@ -216,9 +234,15 @@
 			files = (
 				A6444480222A28EC0066FA47 /* Business.swift in Sources */,
 				A6444487222A376E0066FA47 /* Review.swift in Sources */,
+				A644448D222AE9FA0066FA47 /* Coordinates.swift in Sources */,
 				A6444484222A2E910066FA47 /* Location.swift in Sources */,
 				A6444489222A385A0066FA47 /* User.swift in Sources */,
+				A6444495222AECD60066FA47 /* Messaging.swift in Sources */,
+				A6444491222AEB420066FA47 /* Day.swift in Sources */,
+				A644448B222AE8650066FA47 /* Event.swift in Sources */,
+				A6444493222AEC4B0066FA47 /* SpecialHour.swift in Sources */,
 				A6444482222A2D470066FA47 /* Category.swift in Sources */,
+				A644448F222AEAB00066FA47 /* Hours.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
