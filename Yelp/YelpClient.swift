@@ -48,10 +48,10 @@ class YelpClient {
                         openNow: Bool? = nil,
                         openAt: Int? = nil,
                         attributes: String? = nil,
-                        completion: @escaping (BusinessesSearch?, Error?) -> ()) {
+                        completion: @escaping (RequestResult<BusinessesSearch>) -> ()) {
         
         guard location != nil || (latitude != nil && longitude != nil) else {
-            completion(nil, nil)
+            completion(.error(nil))
             return
         }
         
@@ -71,19 +71,12 @@ class YelpClient {
         if let openAt = openAt { queryItems.append(URLQueryItem(name: "open_at", value: "\(openAt)")) }
         if let attributes = attributes { queryItems.append(URLQueryItem(name: "attributes", value: attributes)) }
         
-        var businessesSearch: BusinessesSearch?
-        var error: Error?
-        
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/search") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                QueryService.shared.makeRequest(with: url, for: BusinessesSearch.self) { (result, err) in
-                    businessesSearch = result
-                    error = err
-                }
+                NetworkService.shared.makeRequest(with: url, for: BusinessesSearch.self) { completion($0) }
             }
         }
-        completion(businessesSearch, error)
     }
     
     func phoneSearch() {}
