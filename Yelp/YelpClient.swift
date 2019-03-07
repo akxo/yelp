@@ -74,7 +74,7 @@ class YelpClient {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/search") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, for: BusinessesSearch.self) { completion($0) }
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: BusinessesSearch.self) { completion($0) }
             }
         }
     }

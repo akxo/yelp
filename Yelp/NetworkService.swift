@@ -15,9 +15,11 @@ class NetworkService {
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     
-    func makeRequest<T>(with url: URL, for type: T.Type, completion: @escaping (RequestResult<T>) -> ()) where T: Decodable {
+    func makeRequest<T>(with url: URL, and apiKey: String, for type: T.Type, completion: @escaping (RequestResult<T>) -> ()) where T: Decodable {
         dataTask?.cancel()
-        dataTask = defaultSession.dataTask(with: url) { (data, response, error) in
+        var request = URLRequest(url: url)
+        request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        dataTask = defaultSession.dataTask(with: request) { (data, response, error) in
             defer { self.dataTask = nil }
             if let error = error {
                 completion(.error(error))
