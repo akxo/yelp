@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct User: Decodable {
-    let id: String
-    let name: String
-    let profileUrl: String
-    let imageUrl: String
+public struct User: Decodable {
+    public let id: String
+    public let name: String?
+    public let profileUrl: String?
+    public let imageUrl: String?
 }

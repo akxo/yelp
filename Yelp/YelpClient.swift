@@ -8,12 +8,12 @@
 
 import Foundation
 
-class YelpClient {
+public class YelpClient {
     
     private let baseUrlString = "https://api.yelp.com/v3/"
     private let apiKey: String
     
-    init(apiKey: String) {
+    public init(apiKey: String) {
         self.apiKey = apiKey
     }
     
@@ -34,7 +34,7 @@ class YelpClient {
     ///   (remaining parameters are optional. See doc to for info on each one)
     ///
     /// - Returns: An optional BusinessSearch object and error
-    func businessSearch(term: String? = nil,
+    public func businessSearch(term: String? = nil,
                         location: String? = nil,
                         latitude: Double? = nil,
                         longitude: Double? = nil,

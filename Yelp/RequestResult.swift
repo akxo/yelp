@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RequestResult<T> where T: Decodable {
+public enum RequestResult<T> where T: Decodable {
     case success(T)
     case error(Error?)
 }

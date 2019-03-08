@@ -25,7 +25,9 @@ class NetworkService {
                 completion(.error(error))
             } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 do {
-                    let result = try JSONDecoder().decode(type, from: data)
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let result = try jsonDecoder.decode(type, from: data)
                     completion(.success(result))
                 } catch let jsonError {
                     completion(.error(jsonError))

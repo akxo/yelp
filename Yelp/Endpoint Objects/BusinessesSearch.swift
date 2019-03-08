@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct BusinessesSearch: Decodable {
-    let total: Int
-    let region: [String : Coordinates]
-    let businesses: [Business]
+public struct BusinessesSearch: Decodable {
+    public let total: Int
+    public let region: [String : Coordinates]
+    public let businesses: [Business]
 }

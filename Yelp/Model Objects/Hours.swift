@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Hours: Decodable {
-    let open: [Day]
-    let hoursType: String
-    let isOpenNow: Bool
+public struct Hours: Decodable {
+    public let open: [Day]?
+    public let hoursType: String?
+    public let isOpenNow: Bool?
 }

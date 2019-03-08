@@ -24,6 +24,7 @@
 		A6444493222AEC4B0066FA47 /* SpecialHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444492222AEC4B0066FA47 /* SpecialHour.swift */; };
 		A6444495222AECD60066FA47 /* Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444494222AECD60066FA47 /* Messaging.swift */; };
 		A6444497222B088A0066FA47 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444496222B088A0066FA47 /* NetworkService.swift */; };
+		A69C1F70223157B000D3D67F /* Yelp.h in Headers */ = {isa = PBXBuildFile; fileRef = A69C1F6F223157B000D3D67F /* Yelp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A6444492222AEC4B0066FA47 /* SpecialHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialHour.swift; sourceTree = "<group>"; };
 		A6444494222AECD60066FA47 /* Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messaging.swift; sourceTree = "<group>"; };
 		A6444496222B088A0066FA47 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A69C1F6F223157B000D3D67F /* Yelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Yelp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		A6444485222A31030066FA47 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A69C1F6F223157B000D3D67F /* Yelp.h */,
 				A6444469222A18B70066FA47 /* Info.plist */,
 			);
 			path = Resources;
@@ -159,6 +162,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69C1F70223157B000D3D67F /* Yelp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

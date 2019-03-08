@@ -8,25 +8,25 @@
 
 import Foundation
 
-class Event: Decodable {
-    let id: String
-    let name: String
-    let description: String
-    let attendingCount: Int
-    let category: String
-    let cost: Double
-    let costMax: Double
-    let eventSiteUrl: String
-    let imageUrl: String
-    let interestedCount: Int
-    let isCanceled: Bool
-    let isFree: Bool
-    let isOfficial: Bool
-    let latitude: Double
-    let longitude: Double
-    let ticketsUrl: String
-    let timeStart: String
-    let timeEnd: String
-    let location: Location
-    let businessId: String
+public struct Event: Decodable {
+    public let id: String
+    public let name: String?
+    public let description: String?
+    public let attendingCount: Int?
+    public let category: String?
+    public let cost: Double?
+    public let costMax: Double?
+    public let eventSiteUrl: String?
+    public let imageUrl: String?
+    public let interestedCount: Int?
+    public let isCanceled: Bool?
+    public let isFree: Bool?
+    public let isOfficial: Bool?
+    public let latitude: Double?
+    public let longitude: Double?
+    public let ticketsUrl: String?
+    public let timeStart: String?
+    public let timeEnd: String?
+    public let location: Location?
+    public let businessId: String?
 }

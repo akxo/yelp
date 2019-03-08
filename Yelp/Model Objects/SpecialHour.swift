@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct SpecialHour: Decodable {
-    let date: String
-    let start: String
-    let end: String
-    let isOvernight: Bool
-    let isClosed: Bool
+public struct SpecialHour: Decodable {
+    public let date: String?
+    public let start: String?
+    public let end: String?
+    public let isOvernight: Bool?
+    public let isClosed: Bool?
 }

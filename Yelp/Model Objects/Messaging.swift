@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Messaging: Decodable {
-    let url: String
-    let useCaseText: String
+public struct Messaging: Decodable {
+    public let url: String?
+    public let useCaseText: String?
 }

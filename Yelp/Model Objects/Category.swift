@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct Category: Decodable {
-    let alias: String
-    let title: String
-    let parentAliases: [String]
-    let countryWhitelist: [String]
-    let countryBlacklist: [String]
+public struct Category: Decodable {
+    public let alias: String?
+    public let title: String?
+    public let parentAliases: [String]?
+    public let countryWhitelist: [String]?
+    public let countryBlacklist: [String]?
 }

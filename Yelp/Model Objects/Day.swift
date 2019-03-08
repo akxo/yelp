@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Day: Decodable {
-    let day: Int
-    let start: String
-    let end: String
-    let isOvernight: Bool
+public struct Day: Decodable {
+    public let day: Int?
+    public let start: String?
+    public let end: String?
+    public let isOvernight: Bool?
 }

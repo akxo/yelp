@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Review: Decodable {
-    let id: String
-    let rating: Int
-    let user: User
-    let text: String
-    let timeCreated: String
-    let url: String
+public struct Review: Decodable {
+    public let id: String
+    public let rating: Int?
+    public let user: User?
+    public let text: String?
+    public let timeCreated: String?
+    public let url: String?
 }

@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Location: Decodable {
-    let address1: String
-    let address2: String
-    let address3: String
-    let city: String
-    let zipCode: String
-    let country: String
-    let state: String
-    let displayAddress: [String]
-    let crossStreets: String
+public struct Location: Decodable {
+    public let address1: String?
+    public let address2: String?
+    public let address3: String?
+    public let city: String?
+    public let zipCode: String?
+    public let country: String?
+    public let state: String?
+    public let displayAddress: [String]?
+    public let crossStreets: String?
 }
