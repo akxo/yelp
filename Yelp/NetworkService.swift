@@ -11,9 +11,10 @@ import Foundation
 class NetworkService {
     
     static let shared = NetworkService()
-    
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
+    
+    private init() {}
     
     func makeRequest<T>(with url: URL, and apiKey: String, for type: T.Type, completion: @escaping (RequestResult<T>) -> ()) where T: Decodable {
         dataTask?.cancel()
