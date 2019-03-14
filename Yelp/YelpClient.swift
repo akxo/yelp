@@ -10,11 +10,29 @@ import Foundation
 
 public class YelpClient {
     
-    private let baseUrlString = "https://api.yelp.com/v3/"
-    private let apiKey: String
+    public static let shared = YelpClient()
     
-    public init(apiKey: String) {
+    private let baseUrlString = "https://api.yelp.com/v3/"
+    private var apiKey: String = ""
+    private var apiKeyWasSet = false
+    
+    private init() {}
+    
+    /// Sets the API key for the shared Yelp client.
+    /// Should be called in AppDelegate didFinishLaunching...
+    ///
+    /// Sign up for Yelp as a developer and find your API key on
+    /// the "Manage App" tab of the Yelp Fusion Documentation.
+    /// (https://www.yelp.com/developers/v3/manage_app)
+    ///
+    /// Yelp API requests cannot be made without an API key.
+    ///
+    /// - Parameters:
+    ///   - apiKey: Personal key that identifies the caller.
+    public func set(apiKey: String) {
+        guard !apiKeyWasSet else { return }
         self.apiKey = apiKey
+        apiKeyWasSet = true
     }
     
     // MARK: Business Endpoints
@@ -25,7 +43,7 @@ public class YelpClient {
     /// See the business search endpoint documentation for more information.
     /// (https://www.yelp.com/developers/documentation/v3/business_search)
     ///
-    /// If the required parameter is not given the result will be nil.
+    /// If the required parameter is not given the request cannot be made.
     ///
     /// - Parameters:
     ///   - location: Required if either latitude or longitude is not provided.
@@ -35,20 +53,26 @@ public class YelpClient {
     ///
     /// - Returns: An optional BusinessSearch object and error
     public func businessSearch(term: String? = nil,
-                        location: String? = nil,
-                        latitude: Double? = nil,
-                        longitude: Double? = nil,
-                        radius: Int? = nil,
-                        categories: String? = nil,
-                        locale: String? = nil,
-                        limit: Int? = nil,
-                        offset: Int? = nil,
-                        sortBy: String? = nil,
-                        price: String? = nil,
-                        openNow: Bool? = nil,
-                        openAt: Int? = nil,
-                        attributes: String? = nil,
-                        completion: @escaping (RequestResult<BusinessesSearch>) -> ()) {
+                               location: String? = nil,
+                               latitude: Double? = nil,
+                               longitude: Double? = nil,
+                               radius: Int? = nil,
+                               categories: String? = nil,
+                               locale: String? = nil,
+                               limit: Int? = nil,
+                               offset: Int? = nil,
+                               sortBy: String? = nil,
+                               price: String? = nil,
+                               openNow: Bool? = nil,
+                               openAt: Int? = nil,
+                               attributes: String? = nil,
+                               completion: @escaping (RequestResult<BusinessesSearch>) -> ()) {
+        
+        guard apiKeyWasSet else {
+            print("error: the api key was never set for the static shared instance of yelp client")
+            completion(.error(nil))
+            return
+        }
         
         guard location != nil || (latitude != nil && longitude != nil) else {
             completion(.error(nil))
@@ -79,7 +103,43 @@ public class YelpClient {
         }
     }
     
-    func phoneSearch() {}
+    /// Returns an array of businesses based on the provided phone number.
+    /// It's possible for more than one business to have the same number
+    /// (for example, chain stores with the same +1 800 phone number).
+    ///
+    /// See the phone search endpoint documentation for more information.
+    /// (https://www.yelp.com/developers/documentation/v3/business_search_phone)
+    ///
+    /// If the required parameter is not given the request cannot be made.
+    ///
+    /// - Parameters:
+    ///   - phone: Required. Phone number of the business you want to search for.
+    ///     It must start with + and include the country code, like +14159083801.
+    ///
+    /// - Returns: An optional PhoneSearch object and error
+    public func phoneSearch(phone: String,
+                            completion: @escaping (RequestResult<PhoneSearch>) -> ()) {
+        
+        guard apiKeyWasSet else {
+            print("error: the api key was never set for the static shared instance of yelp client")
+            completion(.error(nil))
+            return
+        }
+        
+        guard phone.hasPrefix("+") else {
+            print("error: phone number must start with '+'")
+            completion(.error(nil))
+            return
+        }
+        
+        let queryItems = [URLQueryItem(name: "phone", value: phone)]
+        if var urlComponents = URLComponents(string: baseUrlString + "businesses/search/phone") {
+            urlComponents.queryItems = queryItems
+            if let url = urlComponents.url {
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: PhoneSearch.self, completion: { completion($0) })
+            }
+        }
+    }
     
     func transactionSearch() {}
     
