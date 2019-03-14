@@ -25,6 +25,7 @@
 		A6444495222AECD60066FA47 /* Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444494222AECD60066FA47 /* Messaging.swift */; };
 		A6444497222B088A0066FA47 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6444496222B088A0066FA47 /* NetworkService.swift */; };
 		A69C1F70223157B000D3D67F /* Yelp.h in Headers */ = {isa = PBXBuildFile; fileRef = A69C1F6F223157B000D3D67F /* Yelp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6D176EF2237ED9700317FB7 /* PhoneSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D176EE2237ED9700317FB7 /* PhoneSearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		A6444494222AECD60066FA47 /* Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messaging.swift; sourceTree = "<group>"; };
 		A6444496222B088A0066FA47 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A69C1F6F223157B000D3D67F /* Yelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Yelp.h; sourceTree = "<group>"; };
+		A6D176EE2237ED9700317FB7 /* PhoneSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				A60BA426222B486D00C81920 /* BusinessesSearch.swift */,
+				A6D176EE2237ED9700317FB7 /* PhoneSearch.swift */,
 			);
 			path = "Endpoint Objects";
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				A6444491222AEB420066FA47 /* Day.swift in Sources */,
 				A644448B222AE8650066FA47 /* Event.swift in Sources */,
 				A6444493222AEC4B0066FA47 /* SpecialHour.swift in Sources */,
+				A6D176EF2237ED9700317FB7 /* PhoneSearch.swift in Sources */,
 				A6444482222A2D470066FA47 /* Category.swift in Sources */,
 				A644448F222AEAB00066FA47 /* Hours.swift in Sources */,
 				A60BA425222B1DA000C81920 /* YelpClient.swift in Sources */,
