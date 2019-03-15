@@ -116,9 +116,9 @@ public class YelpClient {
     ///   - phone: Required. Phone number of the business you want to search for.
     ///     It must start with + and include the country code, like +14159083801.
     ///
-    /// - Returns: An optional PhoneSearch object and error
+    /// - Returns: An optional Businesses object and error
     public func phoneSearch(phone: String,
-                            completion: @escaping (RequestResult<PhoneSearch>) -> ()) {
+                            completion: @escaping (RequestResult<Businesses>) -> ()) {
         
         guard apiKeyWasSet else {
             print("error: the api key was never set for the static shared instance of yelp client")
@@ -136,12 +136,56 @@ public class YelpClient {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/search/phone") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: PhoneSearch.self, completion: { completion($0) })
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Businesses.self, completion: { completion($0) })
             }
         }
     }
     
-    func transactionSearch() {}
+    /// Returns an array of bussinesses which support the transaction type
+    /// and are within the given location.
+    ///
+    /// See the transaction search endpoint documentation for more information.
+    /// (https://www.yelp.com/developers/documentation/v3/transaction_search)
+    ///
+    /// If the required parameter is not given the request cannot be made.
+    ///
+    /// - Parameters:
+    ///   - transactionType: Optional - defaults to food delivery.
+    ///   - location: Required if either latitude or longitude is not provided.
+    ///   - latitude: Required if location is not provided.
+    ///   - longitude: Required if location is not provided.
+    ///
+    /// - Returns: An optional Businesses object and error
+    func transactionSearch(transactionType: String = "delivery",
+                           location: String? = nil,
+                           latitude: Double? = nil,
+                           longitude: Double? = nil,
+                           completion: @escaping (RequestResult<Businesses>) -> ()) {
+        
+        guard apiKeyWasSet else {
+            print("error: the api key was never set for the static shared instance of yelp client")
+            completion(.error(nil))
+            return
+        }
+        
+        guard location != nil || (latitude != nil && longitude != nil) else {
+            print("error: the location or the latitude and longitude needs to be set")
+            completion(.error(nil))
+            return
+        }
+        
+        var queryItems = [URLQueryItem]()
+        if let location = location { queryItems.append(URLQueryItem(name: "location", value: location)) }
+        if let latitude = latitude { queryItems.append(URLQueryItem(name: "latitude", value: "\(latitude)")) }
+        if let longitude = longitude { queryItems.append(URLQueryItem(name: "longitude", value: "\(longitude)")) }
+        
+        if var urlComponents = URLComponents(string: baseUrlString + "transactions/\(transactionType)/search") {
+            urlComponents.queryItems = queryItems
+            if let url = urlComponents.url {
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Businesses.self, completion: { completion($0) })
+            }
+        }
+    }
     
     func businessDetails() {}
     

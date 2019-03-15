@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PhoneSearch: Decodable {
+public struct Businesses: Decodable {
     public let total: Int
     public let businesses: [Business]
 }
