@@ -116,9 +116,9 @@ public class YelpClient {
     ///   - phone: Required. Phone number of the business you want to search for.
     ///     It must start with + and include the country code, like +14159083801.
     ///
-    /// - Returns: An optional Businesses object and error
+    /// - Returns: An optional PhoneSearch object and error
     public func phoneSearch(phone: String,
-                            completion: @escaping (RequestResult<Businesses>) -> ()) {
+                            completion: @escaping (RequestResult<PhoneSearch>) -> ()) {
         
         guard apiKeyWasSet else {
             print("error: the api key was never set for the static shared instance of yelp client")
@@ -136,7 +136,7 @@ public class YelpClient {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/search/phone") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Businesses.self, completion: { completion($0) })
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: PhoneSearch.self, completion: { completion($0) })
             }
         }
     }
@@ -155,12 +155,12 @@ public class YelpClient {
     ///   - latitude: Required if location is not provided.
     ///   - longitude: Required if location is not provided.
     ///
-    /// - Returns: An optional Businesses object and error
-    func transactionSearch(transactionType: String = "delivery",
+    /// - Returns: An optional TransactionSearch object and error
+    public func transactionSearch(transactionType: String = "delivery",
                            location: String? = nil,
                            latitude: Double? = nil,
                            longitude: Double? = nil,
-                           completion: @escaping (RequestResult<Businesses>) -> ()) {
+                           completion: @escaping (RequestResult<TransactionSearch>) -> ()) {
         
         guard apiKeyWasSet else {
             print("error: the api key was never set for the static shared instance of yelp client")
@@ -182,7 +182,7 @@ public class YelpClient {
         if var urlComponents = URLComponents(string: baseUrlString + "transactions/\(transactionType)/search") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Businesses.self, completion: { completion($0) })
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: TransactionSearch.self, completion: { completion($0) })
             }
         }
     }

@@ -24,7 +24,7 @@ open class Business: Decodable {
     public let location: Location?
     public let phone: String?
     public let displayPhone: String?
-    public let distance: Double
+    public let distance: Double?
     public let isClaimed: Bool?
     public let photos: [String]?
     public let hours: [Hours]?
