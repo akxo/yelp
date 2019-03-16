@@ -15,7 +15,7 @@ open class Business: Decodable {
     public let imageUrl: String?
     public let isClosed: Bool?
     public let url: String?
-    public let review_count: Int?
+    public let reviewCount: Int?
     public let categories: [Category]?
     public let rating: Double?
     public let coordinates: Coordinates?
