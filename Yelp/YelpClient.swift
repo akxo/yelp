@@ -151,7 +151,7 @@ public class YelpClient {
     /// If the required parameter is not given the request cannot be made.
     ///
     /// - Parameters:
-    ///   - transactionType: Optional - defaults to food delivery.
+    ///   - transactionType: Optional. Defaults to food delivery.
     ///   - location: Required if either latitude or longitude is not provided.
     ///   - latitude: Required if location is not provided.
     ///   - longitude: Required if location is not provided.
@@ -195,7 +195,7 @@ public class YelpClient {
     /// (https://www.yelp.com/developers/documentation/v3/business)
     ///
     /// - Parameters:
-    ///   - id: Optional - defaults to food delivery.
+    ///   - id: Required. The yelp business id.
     ///   - locale: Optional. How the business info is localized. Defaults to en_US.
     ///     See the list of supported locales.
     ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
@@ -288,6 +288,19 @@ public class YelpClient {
         }
     }
 
+    /// Returns reviews for the business matching the given id.
+    /// Ids can be obtained using another search method.
+    ///
+    /// See the reviews endpoint documentation for more information.
+    /// (https://www.yelp.com/developers/documentation/v3/business_reviews)
+    ///
+    /// - Parameters:
+    ///   - id: Required. The yelp business id.
+    ///   - locale: Optional. How the business info is localized. Defaults to en_US.
+    ///     See the list of supported locales.
+    ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
+    ///
+    /// - Returns: An optional ReviewSearch object and error
     public func reviews(id: String,
                         locale: String = "en_US",
                         completion: @escaping (RequestResult<ReviewSearch>) -> ()) {
