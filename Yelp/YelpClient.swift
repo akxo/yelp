@@ -288,7 +288,25 @@ public class YelpClient {
         }
     }
 
-    func reviews() {}
+    public func reviews(id: String,
+                        locale: String = "en_US",
+                        completion: @escaping (RequestResult<ReviewSearch>) -> ()) {
+        
+        guard apiKeyWasSet else {
+            print("error: the api key was never set for the static shared instance of yelp client")
+            completion(.error(nil))
+            return
+        }
+        
+        let queryItems = [URLQueryItem(name: "locale", value: locale)]
+        
+        if var urlComponents = URLComponents(string: baseUrlString + "businesses/" + id + "/reviews") {
+            urlComponents.queryItems = queryItems
+            if let url = urlComponents.url {
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: ReviewSearch.self) { completion($0) }
+            }
+        }
+    }
     
     func autocomplete() {}
     
