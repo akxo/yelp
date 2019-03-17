@@ -133,10 +133,11 @@ public class YelpClient {
         }
         
         let queryItems = [URLQueryItem(name: "phone", value: phone)]
+        
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/search/phone") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: PhoneSearch.self, completion: { completion($0) })
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: PhoneSearch.self) { completion($0) }
             }
         }
     }
@@ -182,7 +183,7 @@ public class YelpClient {
         if var urlComponents = URLComponents(string: baseUrlString + "transactions/" + transactionType + "/search") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: TransactionSearch.self, completion: { completion($0) })
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: TransactionSearch.self) { completion($0) }
             }
         }
     }
@@ -215,13 +216,78 @@ public class YelpClient {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/" + id) {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Business.self, completion: { completion($0) })
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Business.self) { completion($0) }
             }
         }
     }
     
-    func businessMatch() {}
-    
+    /// Returns an array of businesses based on the provided information.
+    /// Use this endpoint when you have precise info like name & address.
+    ///
+    /// See the business match endpoint documentation for more information.
+    /// (https://www.yelp.com/developers/documentation/v3/business_match)
+    ///
+    /// - Parameters:
+    ///   - name: Required. The name of the business.
+    ///   - address1: Required. The first line of the business’s address.
+    ///   - city: Required. The city of the business.
+    ///   - state: Required. The ISO 3166-2 state code.
+    ///   - country: Required. The ISO 3166-1 alpha-2 country code.
+    ///   (remaining parameters are optional. See doc to for info on each one)
+    ///
+    /// - Returns: An optional BusinessMatch object and error
+    public func businessMatch(name: String,
+                              address1: String,
+                              address2: String? = nil,
+                              address3: String? = nil,
+                              city: String,
+                              state: String,
+                              country: String,
+                              latitude: Double? = nil,
+                              longitude: Double? = nil,
+                              phone: String? = nil,
+                              zipCode: String? = nil,
+                              id: String? = nil,
+                              limit: Int? = nil,
+                              matchThreshold: String? = nil,
+                              completion: @escaping (RequestResult<BusinessMatch>) -> ()) {
+        
+        guard apiKeyWasSet else {
+            print("error: the api key was never set for the static shared instance of yelp client")
+            completion(.error(nil))
+            return
+        }
+        
+        guard state.count <= 3, country.count <= 2 else {
+            print("error: use ISO 3166-2 code for state and ISO 3166-1 alpha-2 code for country")
+            completion(.error(nil))
+            return
+        }
+        
+        var queryItems = [URLQueryItem]()
+        queryItems.append(URLQueryItem(name: "name", value: name))
+        queryItems.append(URLQueryItem(name: "address1", value: address1))
+        if let address2 = address2 { queryItems.append(URLQueryItem(name: "address2", value: address2)) }
+        if let address3 = address3 { queryItems.append(URLQueryItem(name: "address3", value: address3)) }
+        queryItems.append(URLQueryItem(name: "city", value: city))
+        queryItems.append(URLQueryItem(name: "state", value: state))
+        queryItems.append(URLQueryItem(name: "country", value: country))
+        if let latitude = latitude { queryItems.append(URLQueryItem(name: "latitude", value: "\(latitude)")) }
+        if let longitude = longitude { queryItems.append(URLQueryItem(name: "longitude", value: "\(longitude)")) }
+        if let phone = phone { queryItems.append(URLQueryItem(name: "phone", value: phone)) }
+        if let zipCode = zipCode { queryItems.append(URLQueryItem(name: "zip_code", value: zipCode)) }
+        if let id = id { queryItems.append(URLQueryItem(name: "yelp_business_id", value: id)) }
+        if let limit = limit { queryItems.append(URLQueryItem(name: "limit", value: "\(limit)")) }
+        if let matchThreshold = matchThreshold { queryItems.append(URLQueryItem(name: "match_threshold", value: matchThreshold)) }
+        
+        if var urlComponents = URLComponents(string: baseUrlString + "businesses/matches") {
+            urlComponents.queryItems = queryItems
+            if let url = urlComponents.url {
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: BusinessMatch.self) { completion($0) }
+            }
+        }
+    }
+
     func reviews() {}
     
     func autocomplete() {}
