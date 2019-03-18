@@ -88,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A60B1EE2223FCC2300855A14 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A6444496222B088A0066FA47 /* NetworkService.swift */,
+				A60C0C8C222F1D26003690E0 /* RequestResult.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A60B1EE3223FCC5100855A14 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				A60BA424222B1DA000C81920 /* YelpClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		A6251B11222B9B7D00E7FCD3 /* Model Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,9 +158,8 @@
 			children = (
 				A6251B11222B9B7D00E7FCD3 /* Model Objects */,
 				A6251B12222B9BAD00E7FCD3 /* Endpoint Objects */,
-				A6444496222B088A0066FA47 /* NetworkService.swift */,
-				A60BA424222B1DA000C81920 /* YelpClient.swift */,
-				A60C0C8C222F1D26003690E0 /* RequestResult.swift */,
+				A60B1EE2223FCC2300855A14 /* Networking */,
+				A60B1EE3223FCC5100855A14 /* Client */,
 				A6444485222A31030066FA47 /* Resources */,
 			);
 			path = Yelp;
