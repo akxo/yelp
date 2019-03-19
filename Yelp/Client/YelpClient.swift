@@ -321,7 +321,46 @@ public class YelpClient {
         }
     }
     
-    func autocomplete() {}
+    /// Returns autocomplete suggestions for the given text and coordinates.
+    ///
+    /// See the autocomplete endpoint documentation for more information.
+    /// (https://www.yelp.com/developers/documentation/v3/autocomplete)
+    ///
+    /// - Parameters:
+    ///   - text: Required. Text to return autocomplete suggestions for.
+    ///   - latitude: Required to get autocomplete suggestions for businesses.
+    ///   - longitude: Required to get autocomplete suggestions for businesses.
+    ///   - locale: Optional. How the business info is localized. Defaults to en_US.
+    ///     See the list of supported locales.
+    ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
+    ///
+    /// - Returns: An optional AutocompleteSearch object and error
+    public func autocomplete(text: String,
+                             latitude: Double? = nil,
+                             longitude: Double? = nil,
+                             locale: String = "en_US",
+                             completion: @escaping (RequestResult<AutocompleteSearch>) -> ()) {
+        
+        guard apiKeyWasSet else {
+            print("error: the api key was never set for the static shared instance of yelp client")
+            completion(.error(nil))
+            return
+        }
+        
+        var queryItems: [URLQueryItem] = [URLQueryItem(name: "text", value: text)]
+        if let latitude = latitude, let longitude = longitude {
+            queryItems.append(URLQueryItem(name: "latitude", value: "\(latitude)"))
+            queryItems.append(URLQueryItem(name: "longitude", value: "\(longitude)"))
+        }
+        queryItems.append(URLQueryItem(name: "locale", value: locale))
+        
+        if var urlComponents = URLComponents(string: baseUrlString + "autocomplete") {
+            urlComponents.queryItems = queryItems
+            if let url = urlComponents.url {
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: AutocompleteSearch.self) { completion($0) }
+            }
+        }
+    }
     
     // MARK: Event Endpoints (beta)
     

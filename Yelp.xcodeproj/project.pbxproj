@@ -27,6 +27,8 @@
 		A6511BB9223EBADB003D766A /* ReviewSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6511BB8223EBADB003D766A /* ReviewSearch.swift */; };
 		A65336C5223C771700F586DF /* TransactionSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65336C4223C771700F586DF /* TransactionSearch.swift */; };
 		A69C1F70223157B000D3D67F /* Yelp.h in Headers */ = {isa = PBXBuildFile; fileRef = A69C1F6F223157B000D3D67F /* Yelp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A69DD7ED2240750E00CDCDFC /* AutocompleteSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DD7EC2240750E00CDCDFC /* AutocompleteSearch.swift */; };
+		A69DD7EF2240760D00CDCDFC /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69DD7EE2240760D00CDCDFC /* Term.swift */; };
 		A69F37AD223E99A000782208 /* BusinessMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F37AC223E99A000782208 /* BusinessMatch.swift */; };
 		A6D176EF2237ED9700317FB7 /* PhoneSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D176EE2237ED9700317FB7 /* PhoneSearch.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		A6511BB8223EBADB003D766A /* ReviewSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSearch.swift; sourceTree = "<group>"; };
 		A65336C4223C771700F586DF /* TransactionSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearch.swift; sourceTree = "<group>"; };
 		A69C1F6F223157B000D3D67F /* Yelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Yelp.h; sourceTree = "<group>"; };
+		A69DD7EC2240750E00CDCDFC /* AutocompleteSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteSearch.swift; sourceTree = "<group>"; };
+		A69DD7EE2240760D00CDCDFC /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		A69F37AC223E99A000782208 /* BusinessMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMatch.swift; sourceTree = "<group>"; };
 		A6D176EE2237ED9700317FB7 /* PhoneSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,7 @@
 				A6444492222AEC4B0066FA47 /* SpecialHour.swift */,
 				A6444490222AEB420066FA47 /* Day.swift */,
 				A6444494222AECD60066FA47 /* Messaging.swift */,
+				A69DD7EE2240760D00CDCDFC /* Term.swift */,
 			);
 			path = "Model Objects";
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				A65336C4223C771700F586DF /* TransactionSearch.swift */,
 				A69F37AC223E99A000782208 /* BusinessMatch.swift */,
 				A6511BB8223EBADB003D766A /* ReviewSearch.swift */,
+				A69DD7EC2240750E00CDCDFC /* AutocompleteSearch.swift */,
 			);
 			path = "Endpoint Objects";
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				A644448D222AE9FA0066FA47 /* Coordinates.swift in Sources */,
 				A6444484222A2E910066FA47 /* Location.swift in Sources */,
 				A6444489222A385A0066FA47 /* User.swift in Sources */,
+				A69DD7EF2240760D00CDCDFC /* Term.swift in Sources */,
 				A6444495222AECD60066FA47 /* Messaging.swift in Sources */,
 				A6444491222AEB420066FA47 /* Day.swift in Sources */,
 				A644448B222AE8650066FA47 /* Event.swift in Sources */,
@@ -311,6 +318,7 @@
 				A6444482222A2D470066FA47 /* Category.swift in Sources */,
 				A644448F222AEAB00066FA47 /* Hours.swift in Sources */,
 				A60BA425222B1DA000C81920 /* YelpClient.swift in Sources */,
+				A69DD7ED2240750E00CDCDFC /* AutocompleteSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
