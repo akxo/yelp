@@ -364,6 +364,38 @@ public class YelpClient {
     
     // MARK: Event Endpoints (beta)
     
+    /// Returns an event with full details based on the given id.
+    ///
+    /// See the event lookup endpoint documentation for more information.
+    /// (https://www.yelp.com/developers/documentation/v3/event)
+    ///
+    /// - Parameters:
+    ///   - id: Required. The yelp event id.
+    ///   - locale: Optional. How the business info is localized. Defaults to en_US.
+    ///     See the list of supported locales.
+    ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
+    ///
+    /// - Returns: An optional Event object and error
+    public func eventLookup(id: String,
+                            locale: String = "en_US",
+                            completion: @escaping (RequestResult<Event>) -> ()) {
+        
+        guard apiKeyWasSet else {
+            print("error: the api key was never set for the static shared instance of yelp client")
+            completion(.error(nil))
+            return
+        }
+        
+        let queryItems = [URLQueryItem(name: "locale", value: locale)]
+        
+        if var urlComponents = URLComponents(string: baseUrlString + "events/" + id) {
+            urlComponents.queryItems = queryItems
+            if let url = urlComponents.url {
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Event.self) { completion($0) }
+            }
+        }
+    }
+    
     func eventSearch() {}
     
     func featuredEvent() {}
