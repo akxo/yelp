@@ -37,8 +37,7 @@ public class YelpClient {
     
     // MARK: Business Endpoints
     
-    /// Returns an array of bussinesses that meet the search criteria
-    /// and wrapped inside the BusinessSearch object
+    /// Returns an array of bussinesses that meet the search criteria.
     ///
     /// See the business search endpoint documentation for more information.
     /// (https://www.yelp.com/developers/documentation/v3/business_search)
@@ -396,7 +395,63 @@ public class YelpClient {
         }
     }
     
-    func eventSearch() {}
+    /// Returns an array of events that meet the search criteria.
+    ///
+    /// See the event search endpoint documentation for more information.
+    /// (https://www.yelp.com/developers/documentation/v3/event_search)
+    ///
+    /// - Parameters:
+    ///   All parameters are optional. See doc to for info on each one
+    ///
+    /// - Returns: An optional EventSearch object and error
+    public func eventSearch(locale: String = "en_US",
+                            offset: Int? = nil,
+                            limit: Int = 3,
+                            sortBy: String = "desc",
+                            sortOn: String = "popularity",
+                            startDate: Int? = nil,
+                            endDate: Int? = nil,
+                            categories: String? = nil,
+                            isFree: Bool? = nil,
+                            location: String? = nil,
+                            latitude: Double? = nil,
+                            longitude: Double? = nil,
+                            radius: Int? = nil,
+                            excludedEvents: [String]? = nil,
+                            completion: @escaping (RequestResult<EventSearch>) -> ()) {
+        
+        guard apiKeyWasSet else {
+            print("error: the api key was never set for the static shared instance of yelp client")
+            completion(.error(nil))
+            return
+        }
+        
+        var queryItems = [URLQueryItem]()
+        queryItems.append(URLQueryItem(name: "locale", value: locale))
+        if let offset = offset { queryItems.append(URLQueryItem(name: "offset", value: "\(offset)")) }
+        queryItems.append(URLQueryItem(name: "limit", value: "\(limit)"))
+        queryItems.append(URLQueryItem(name: "sort_by", value: sortBy))
+        queryItems.append(URLQueryItem(name: "sort_on", value: sortOn))
+        if let startDate = startDate { queryItems.append(URLQueryItem(name: "start_date", value: "\(startDate)")) }
+        if let endDate = endDate { queryItems.append(URLQueryItem(name: "end_date", value: "\(endDate)")) }
+        if let categories = categories { queryItems.append(URLQueryItem(name: "categories", value: categories)) }
+        if let isFree = isFree { queryItems.append(URLQueryItem(name: "is_free", value: "\(isFree)")) }
+        if let location = location { queryItems.append(URLQueryItem(name: "location", value: location)) }
+        if let latitude = latitude { queryItems.append(URLQueryItem(name: "latitude", value: "\(latitude)")) }
+        if let longitude = longitude { queryItems.append(URLQueryItem(name: "longitude", value: "\(longitude)")) }
+        if let radius = radius { queryItems.append(URLQueryItem(name: "radius", value: "\(radius)")) }
+        if let excludedEvents = excludedEvents {
+            let excludedEventsString = excludedEvents.reduce("") { $0 + $1 }
+            queryItems.append(URLQueryItem(name: "excluded_events", value: excludedEventsString))
+        }
+        
+        if var urlComponents = URLComponents(string: baseUrlString + "events") {
+            urlComponents.queryItems = queryItems
+            if let url = urlComponents.url {
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: EventSearch.self) { completion($0) }
+            }
+        }
+    }
     
     func featuredEvent() {}
     
