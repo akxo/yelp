@@ -13,8 +13,7 @@ public class YelpClient {
     public static let shared = YelpClient()
     
     private let baseUrlString = "https://api.yelp.com/v3/"
-    private var apiKey: String = ""
-    private var apiKeyWasSet = false
+    private var apiKey: String?
     
     private init() {}
     
@@ -29,10 +28,8 @@ public class YelpClient {
     ///
     /// - Parameters:
     ///   - apiKey: Personal key that identifies the caller.
-    public func set(apiKey: String) {
-        guard !apiKeyWasSet else { return }
-        self.apiKey = apiKey
-        apiKeyWasSet = true
+    public static func set(apiKey: String) {
+        shared.apiKey = apiKey
     }
     
     // MARK: Business Endpoints
@@ -67,8 +64,7 @@ public class YelpClient {
                                attributes: String? = nil,
                                completion: @escaping (Result<BusinessesSearch, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
@@ -119,8 +115,7 @@ public class YelpClient {
     public func phoneSearch(phone: String,
                             completion: @escaping (Result<PhoneSearch, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
@@ -162,8 +157,7 @@ public class YelpClient {
                            longitude: Double? = nil,
                            completion: @escaping (Result<TransactionSearch, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
@@ -204,8 +198,7 @@ public class YelpClient {
                                 locale: String = "en_US",
                                 completion: @escaping (Result<Business, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
@@ -251,8 +244,7 @@ public class YelpClient {
                               matchThreshold: String? = nil,
                               completion: @escaping (Result<BusinessMatch, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
@@ -314,8 +306,7 @@ public class YelpClient {
                         locale: String = "en_US",
                         completion: @escaping (Result<ReviewSearch, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
@@ -350,8 +341,7 @@ public class YelpClient {
                              locale: String = "en_US",
                              completion: @escaping (Result<AutocompleteSearch, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
@@ -389,8 +379,7 @@ public class YelpClient {
                             locale: String = "en_US",
                             completion: @escaping (Result<Event, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
@@ -430,8 +419,7 @@ public class YelpClient {
                             excludedEvents: [String]? = nil,
                             completion: @escaping (Result<EventSearch, Error>) -> ()) {
         
-        guard apiKeyWasSet else {
-            print("error: the api key was never set for the static shared instance of yelp client")
+        guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
             return
         }
