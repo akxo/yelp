@@ -1,21 +1,17 @@
 //
-//  YelpClient.swift
+//  Yelp.swift
 //  Yelp
 //
-//  Created by Alexander Kerendian on 3/2/19.
+//  Created by Alex Kerendian on 6/27/19.
 //  Copyright © 2019 Alexander Kerendian. All rights reserved.
 //
 
 import Foundation
 
-public class YelpClient {
+public class Yelp {
     
-    public static let shared = YelpClient()
-    
-    private let baseUrlString = "https://api.yelp.com/v3/"
-    private var apiKey: String?
-    
-    private init() {}
+    private static let baseUrlString = "https://api.yelp.com/v3/"
+    private static var apiKey: String?
     
     /// Sets the API key for the shared Yelp client.
     /// Should be called in AppDelegate didFinishLaunching...
@@ -29,7 +25,7 @@ public class YelpClient {
     /// - Parameters:
     ///   - apiKey: Personal key that identifies the caller.
     public static func set(apiKey: String) {
-        shared.apiKey = apiKey
+        self.apiKey = apiKey
     }
     
     // MARK: Business Endpoints
@@ -48,7 +44,7 @@ public class YelpClient {
     ///   (remaining parameters are optional. See doc to for info on each one)
     ///
     /// - Returns: An optional BusinessSearch object and error
-    public func businessSearch(term: String? = nil,
+    public static func businessSearch(term: String? = nil,
                                location: String? = nil,
                                latitude: Double? = nil,
                                longitude: Double? = nil,
@@ -112,7 +108,7 @@ public class YelpClient {
     ///     It must start with + and include the country code, like +14159083801.
     ///
     /// - Returns: An optional PhoneSearch object and error
-    public func phoneSearch(phone: String,
+    public static func phoneSearch(phone: String,
                             completion: @escaping (Result<PhoneSearch, Error>) -> ()) {
         
         guard let apiKey = apiKey else {
@@ -151,11 +147,11 @@ public class YelpClient {
     ///   - longitude: Required if location is not provided.
     ///
     /// - Returns: An optional TransactionSearch object and error
-    public func transactionSearch(transactionType: String = "delivery",
-                           location: String? = nil,
-                           latitude: Double? = nil,
-                           longitude: Double? = nil,
-                           completion: @escaping (Result<TransactionSearch, Error>) -> ()) {
+    public static func transactionSearch(transactionType: String = "delivery",
+                                  location: String? = nil,
+                                  latitude: Double? = nil,
+                                  longitude: Double? = nil,
+                                  completion: @escaping (Result<TransactionSearch, Error>) -> ()) {
         
         guard let apiKey = apiKey else {
             completion(.failure(YelpError.apiKeyNotSet))
@@ -194,7 +190,7 @@ public class YelpClient {
     ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
     ///
     /// - Returns: An optional Business object and error
-    public func businessDetails(id: String,
+    public static func businessDetails(id: String,
                                 locale: String = "en_US",
                                 completion: @escaping (Result<Business, Error>) -> ()) {
         
@@ -228,7 +224,7 @@ public class YelpClient {
     ///   (remaining parameters are optional. See doc to for info on each one)
     ///
     /// - Returns: An optional BusinessMatch object and error
-    public func businessMatch(name: String,
+    public static func businessMatch(name: String,
                               address1: String,
                               address2: String? = nil,
                               address3: String? = nil,
@@ -259,11 +255,11 @@ public class YelpClient {
             return
         }
         
-//        guard state.count <= 3, country.count <= 2 else {
-//            print("error: use ISO 3166-2 code for state and ISO 3166-1 alpha-2 code for country")
-//            completion(.failure(YelpError.stateOrCountryCode))
-//            return
-//        }
+        //        guard state.count <= 3, country.count <= 2 else {
+        //            print("error: use ISO 3166-2 code for state and ISO 3166-1 alpha-2 code for country")
+        //            completion(.failure(YelpError.stateOrCountryCode))
+        //            return
+        //        }
         
         var queryItems = [URLQueryItem]()
         queryItems.append(URLQueryItem(name: "name", value: name))
@@ -288,7 +284,7 @@ public class YelpClient {
             }
         }
     }
-
+    
     /// Returns reviews for the business matching the given id.
     /// Ids can be obtained using another search method.
     ///
@@ -302,7 +298,7 @@ public class YelpClient {
     ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
     ///
     /// - Returns: An optional ReviewSearch object and error
-    public func reviews(id: String,
+    public static func reviews(id: String,
                         locale: String = "en_US",
                         completion: @escaping (Result<ReviewSearch, Error>) -> ()) {
         
@@ -335,7 +331,7 @@ public class YelpClient {
     ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
     ///
     /// - Returns: An optional AutocompleteSearch object and error
-    public func autocomplete(text: String,
+    public static func autocomplete(text: String,
                              latitude: Double? = nil,
                              longitude: Double? = nil,
                              locale: String = "en_US",
@@ -375,7 +371,7 @@ public class YelpClient {
     ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
     ///
     /// - Returns: An optional Event object and error
-    public func eventLookup(id: String,
+    public static func eventLookup(id: String,
                             locale: String = "en_US",
                             completion: @escaping (Result<Event, Error>) -> ()) {
         
@@ -403,7 +399,7 @@ public class YelpClient {
     ///   All parameters are optional. See doc to for info on each one
     ///
     /// - Returns: An optional EventSearch object and error
-    public func eventSearch(locale: String = "en_US",
+    public static func eventSearch(locale: String = "en_US",
                             offset: Int? = nil,
                             limit: Int = 3,
                             sortBy: String = "desc",
@@ -465,7 +461,7 @@ public class YelpClient {
     ///   - longitude: Required if location is not provided.
     ///
     /// - Returns: An optional Event object and error
-    public func featuredEvent(locale: String = "en_US",
+    public static func featuredEvent(locale: String = "en_US",
                               location: String? = nil,
                               latitude: Double? = nil,
                               longitude: Double? = nil,
@@ -498,7 +494,7 @@ public class YelpClient {
     
     // MARK: Category Endpoints (beta)
     
-    func allCategories() {}
+    public static func allCategories() {}
     
-    func categoryDetails() {}
+    public static func categoryDetails() {}
 }
