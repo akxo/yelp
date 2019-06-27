@@ -451,7 +451,50 @@ public class YelpClient {
         }
     }
     
-    func featuredEvent() {}
+    /// Returns a featured event based on location.
+    ///
+    /// See the featured event endpoint documentation for more information.
+    /// (https://www.yelp.com/developers/documentation/v3/featured_event)
+    ///
+    /// - Parameters:
+    ///   - locale: Optional. How the business info is localized. Defaults to en_US.
+    ///     See the list of supported locales.
+    ///     (https://www.yelp.com/developers/documentation/v3/supported_locales)
+    ///   - location: Required if either latitude or longitude is not provided.
+    ///   - latitude: Required if location is not provided.
+    ///   - longitude: Required if location is not provided.
+    ///
+    /// - Returns: An optional Event object and error
+    public func featuredEvent(locale: String = "en_US",
+                              location: String? = nil,
+                              latitude: Double? = nil,
+                              longitude: Double? = nil,
+                              completion: @escaping (Result<Event, Error>) -> ()) {
+        
+        guard let apiKey = apiKey else {
+            completion(.failure(YelpError.apiKeyNotSet))
+            return
+        }
+        
+        guard location != nil || (latitude != nil && longitude != nil) else {
+            print("error: the location or the latitude and longitude needs to be set")
+            completion(.failure(YelpError.locationRequired))
+            return
+        }
+        
+        var queryItems = [URLQueryItem]()
+        queryItems.append(URLQueryItem(name: "locale", value: locale))
+        if let location = location { queryItems.append(URLQueryItem(name: "location", value: location)) }
+        if let latitude = latitude { queryItems.append(URLQueryItem(name: "latitude", value: "\(latitude)")) }
+        if let longitude = longitude { queryItems.append(URLQueryItem(name: "longitude", value: "\(longitude)")) }
+        
+        if var urlComponents = URLComponents(string: baseUrlString + "events/featured") {
+            urlComponents.queryItems = queryItems
+            if let url = urlComponents.url {
+                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Event.self) { completion($0) }
+            }
+        }
+    }
     
     // MARK: Category Endpoints (beta)
     
