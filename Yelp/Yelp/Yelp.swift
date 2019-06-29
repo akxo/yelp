@@ -13,6 +13,8 @@ public class Yelp {
     private static let baseUrlString = "https://api.yelp.com/v3/"
     private static var apiKey: String?
     
+    private init() {}
+    
     /// Sets the API key for the shared Yelp client.
     /// Should be called in AppDelegate didFinishLaunching...
     ///
@@ -89,7 +91,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/search") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: BusinessesSearch.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: BusinessesSearch.self) { completion($0) }
             }
         }
     }
@@ -127,7 +129,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/search/phone") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: PhoneSearch.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: PhoneSearch.self) { completion($0) }
             }
         }
     }
@@ -172,7 +174,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "transactions/" + transactionType + "/search") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: TransactionSearch.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: TransactionSearch.self) { completion($0) }
             }
         }
     }
@@ -204,7 +206,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/" + id) {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Business.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: Business.self) { completion($0) }
             }
         }
     }
@@ -280,7 +282,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/matches") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: BusinessMatch.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: BusinessMatch.self) { completion($0) }
             }
         }
     }
@@ -312,7 +314,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "businesses/" + id + "/reviews") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: ReviewSearch.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: ReviewSearch.self) { completion($0) }
             }
         }
     }
@@ -352,7 +354,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "autocomplete") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: AutocompleteSearch.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: AutocompleteSearch.self) { completion($0) }
             }
         }
     }
@@ -385,7 +387,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "events/" + id) {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Event.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: Event.self) { completion($0) }
             }
         }
     }
@@ -442,7 +444,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "events") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: EventSearch.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: EventSearch.self) { completion($0) }
             }
         }
     }
@@ -487,7 +489,7 @@ public class Yelp {
         if var urlComponents = URLComponents(string: baseUrlString + "events/featured") {
             urlComponents.queryItems = queryItems
             if let url = urlComponents.url {
-                NetworkService.shared.makeRequest(with: url, and: apiKey, for: Event.self) { completion($0) }
+                NetworkService.makeRequest(with: url, and: apiKey, for: Event.self) { completion($0) }
             }
         }
     }

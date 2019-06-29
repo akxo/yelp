@@ -10,13 +10,12 @@ import Foundation
 
 class NetworkService {
     
-    static let shared = NetworkService()
-    let defaultSession = URLSession(configuration: .default)
-    var dataTask: URLSessionDataTask?
+    static let defaultSession = URLSession(configuration: .default)
+    static var dataTask: URLSessionDataTask?
     
     private init() {}
     
-    func makeRequest<T>(with url: URL, and apiKey: String, for type: T.Type, completion: @escaping (Result<T, Error>) -> ()) where T: Decodable {
+    static func makeRequest<T>(with url: URL, and apiKey: String, for type: T.Type, completion: @escaping (Result<T, Error>) -> ()) where T: Decodable {
         dataTask?.cancel()
         var request = URLRequest(url: url)
         request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
