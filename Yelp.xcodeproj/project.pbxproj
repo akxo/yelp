@@ -111,7 +111,7 @@
 			path = Yelp;
 			sourceTree = "<group>";
 		};
-		A6251B11222B9B7D00E7FCD3 /* Model Objects */ = {
+		A6251B11222B9B7D00E7FCD3 /* ModelObjects */ = {
 			isa = PBXGroup;
 			children = (
 				A644447F222A28EC0066FA47 /* Business.swift */,
@@ -127,10 +127,10 @@
 				A6444494222AECD60066FA47 /* Messaging.swift */,
 				A69DD7EE2240760D00CDCDFC /* Term.swift */,
 			);
-			path = "Model Objects";
+			path = ModelObjects;
 			sourceTree = "<group>";
 		};
-		A6251B12222B9BAD00E7FCD3 /* Endpoint Objects */ = {
+		A6251B12222B9BAD00E7FCD3 /* EndpointObjects */ = {
 			isa = PBXGroup;
 			children = (
 				A60BA426222B486D00C81920 /* BusinessesSearch.swift */,
@@ -141,7 +141,7 @@
 				A69DD7EC2240750E00CDCDFC /* AutocompleteSearch.swift */,
 				A69B898B2241DE880049FE8F /* EventSearch.swift */,
 			);
-			path = "Endpoint Objects";
+			path = EndpointObjects;
 			sourceTree = "<group>";
 		};
 		A644445B222A18B60066FA47 = {
@@ -165,8 +165,8 @@
 		A6444467222A18B70066FA47 /* Yelp */ = {
 			isa = PBXGroup;
 			children = (
-				A6251B11222B9B7D00E7FCD3 /* Model Objects */,
-				A6251B12222B9BAD00E7FCD3 /* Endpoint Objects */,
+				A6251B11222B9B7D00E7FCD3 /* ModelObjects */,
+				A6251B12222B9BAD00E7FCD3 /* EndpointObjects */,
 				A60B1EE3223FCC5100855A14 /* Yelp */,
 				A60B1EE2223FCC2300855A14 /* Networking */,
 				A6444485222A31030066FA47 /* Resources */,
