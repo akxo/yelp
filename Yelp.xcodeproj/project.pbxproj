@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A29A68AF2409E38D0069AFAC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A68AE2409E38D0069AFAC /* Router.swift */; };
+		A29A68B1240B22B40069AFAC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A68B0240B22B40069AFAC /* Request.swift */; };
+		A29A68B3240B29AB0069AFAC /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A68B2240B29AB0069AFAC /* APIRoute.swift */; };
 		A2A11FC122C57D4900C6179A /* Yelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A11FC022C57D4900C6179A /* Yelp.swift */; };
 		A2B43F1622C4306100325331 /* YelpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B43F1522C4306100325331 /* YelpError.swift */; };
 		A60BA427222B486D00C81920 /* BusinessesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60BA426222B486D00C81920 /* BusinessesSearch.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A29A68AE2409E38D0069AFAC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A29A68B0240B22B40069AFAC /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		A29A68B2240B29AB0069AFAC /* APIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
 		A2A11FC022C57D4900C6179A /* Yelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yelp.swift; sourceTree = "<group>"; };
 		A2B43F1522C4306100325331 /* YelpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpError.swift; sourceTree = "<group>"; };
 		A60BA426222B486D00C81920 /* BusinessesSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesSearch.swift; sourceTree = "<group>"; };
@@ -94,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A29A68AD2409E3780069AFAC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A29A68B0240B22B40069AFAC /* Request.swift */,
+				A29A68AE2409E38D0069AFAC /* Router.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		A60B1EE2223FCC2300855A14 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +120,7 @@
 		A60B1EE3223FCC5100855A14 /* Yelp */ = {
 			isa = PBXGroup;
 			children = (
+				A29A68B2240B29AB0069AFAC /* APIRoute.swift */,
 				A2A11FC022C57D4900C6179A /* Yelp.swift */,
 				A2B43F1522C4306100325331 /* YelpError.swift */,
 			);
@@ -165,6 +181,7 @@
 		A6444467222A18B70066FA47 /* Yelp */ = {
 			isa = PBXGroup;
 			children = (
+				A29A68AD2409E3780069AFAC /* Protocols */,
 				A6251B11222B9B7D00E7FCD3 /* ModelObjects */,
 				A6251B12222B9BAD00E7FCD3 /* EndpointObjects */,
 				A60B1EE3223FCC5100855A14 /* Yelp */,
@@ -304,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6511BB9223EBADB003D766A /* ReviewSearch.swift in Sources */,
+				A29A68B1240B22B40069AFAC /* Request.swift in Sources */,
 				A65336C5223C771700F586DF /* TransactionSearch.swift in Sources */,
 				A6444480222A28EC0066FA47 /* Business.swift in Sources */,
 				A69B898C2241DE880049FE8F /* EventSearch.swift in Sources */,
@@ -311,6 +329,7 @@
 				A6444487222A376E0066FA47 /* Review.swift in Sources */,
 				A69F37AD223E99A000782208 /* BusinessMatch.swift in Sources */,
 				A60BA427222B486D00C81920 /* BusinessesSearch.swift in Sources */,
+				A29A68B3240B29AB0069AFAC /* APIRoute.swift in Sources */,
 				A644448D222AE9FA0066FA47 /* Coordinates.swift in Sources */,
 				A6444484222A2E910066FA47 /* Location.swift in Sources */,
 				A6444489222A385A0066FA47 /* User.swift in Sources */,
@@ -319,6 +338,7 @@
 				A6444495222AECD60066FA47 /* Messaging.swift in Sources */,
 				A6444491222AEB420066FA47 /* Day.swift in Sources */,
 				A644448B222AE8650066FA47 /* Event.swift in Sources */,
+				A29A68AF2409E38D0069AFAC /* Router.swift in Sources */,
 				A6444493222AEC4B0066FA47 /* SpecialHour.swift in Sources */,
 				A6D176EF2237ED9700317FB7 /* PhoneSearch.swift in Sources */,
 				A6444482222A2D470066FA47 /* Category.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class Business: Decodable {
+public struct Business: Decodable {
     public let id: String
     public let name: String
     public let alias: String?

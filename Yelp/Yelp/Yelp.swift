@@ -11,7 +11,7 @@ import Foundation
 public class Yelp {
     
     private static let baseUrlString = "https://api.yelp.com/v3/"
-    private static var apiKey: String?
+    static var apiKey: String?
     
     private init() {}
     

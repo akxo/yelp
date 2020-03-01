@@ -33,7 +33,7 @@ struct NetworkService {
             return
         }
         
-        let urlSession = URLSession(configuration: route.urlSessionConfiguration)
+        let urlSession = URLSession(configuration: .default)
         let dataTask = urlSession.dataTask(with: request) { (data, response, error) in
             
             guard let response = response as? HTTPURLResponse else {
@@ -90,10 +90,4 @@ public enum APIError: Error {
     case unauthorized // 401
     case notFound // 404
     case serverError // 500 - 504
-}
-
-protocol Router {
-    
-    var urlRequest: URLRequest? { get }
-    var urlSessionConfiguration: URLSessionConfiguration { get }
 }
